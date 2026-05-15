@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Controle do Carrinho</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts for modern typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <div class="header-content">
+                <h1>Rover Control</h1>
+                <div id="connection-status" class="status disconnected">Desconectado</div>
+            </div>
+            <p class="subtitle">Painel de Navegação</p>
+        </header>
+
+        <main>
+            <div class="connection-panel">
+                <button id="btn-connect" class="btn primary-btn">
+                    <i data-lucide="bluetooth"></i>
+                    <span>Conectar Bluetooth</span>
+                </button>
+            </div>
+
+            <div class="controller-grid">
+                <div class="d-pad">
+                    <div class="pad-row">
+                        <button class="control-btn" id="btn-up" data-command="F">
+                            <i data-lucide="chevron-up"></i>
+                        </button>
+                    </div>
+                    <div class="pad-row pad-middle">
+                        <button class="control-btn" id="btn-left" data-command="L">
+                            <i data-lucide="chevron-left"></i>
+                        </button>
+                        <div class="center-indicator">
+                            <div class="core-light"></div>
+                        </div>
+                        <button class="control-btn" id="btn-right" data-command="R">
+                            <i data-lucide="chevron-right"></i>
+                        </button>
+                    </div>
+                    <div class="pad-row">
+                        <button class="control-btn" id="btn-down" data-command="B">
+                            <i data-lucide="chevron-down"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-panel">
+                <p><i data-lucide="info"></i> Pressione e segure para mover. Solte para parar.</p>
+                <div class="terminal" id="terminal">
+                    <div class="terminal-line system">Aguardando conexão...</div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
