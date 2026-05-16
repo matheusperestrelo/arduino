@@ -1,14 +1,16 @@
 #include <SoftwareSerial.h>
 
-// Configuração do Módulo Bluetooth (Pinos 2 = RX, 3 = TX)
-SoftwareSerial bluetooth(2, 3);
+// HC-05: RX_do_modulo → pino 2 do Arduino, TX_do_modulo → pino 7 do Arduino
+// IMPORTANTE: o pino 3 era TX do SoftwareSerial E motorPinA2 ao mesmo tempo.
+// Movido TX para pino 7 para eliminar o conflito.
+SoftwareSerial bluetooth(2, 7);
 
 // Definição dos pinos conectados à ponte H L9110S
-const int motorPinA = 6; // Entrada IA
-const int motorPinB = 4;
-const int motorPinA2 = 3;
-const int motorPinB2 = 5; // Entrada IB
-` char command;
+const int motorPinA  = 6; // Motor 1 – Entrada IA
+const int motorPinB  = 4; // Motor 1 – Entrada IB
+const int motorPinA2 = 8; // Motor 2 – Entrada IA (era 3 — conflito com TX BT)
+const int motorPinB2 = 5; // Motor 2 – Entrada IB
+char command;
 
 void setup() {
   pinMode(motorPinA, OUTPUT);
